@@ -1,4 +1,4 @@
-@extends('public.layout')
+@extends('layouts.app')
 
 @section('title','Trabajos')
 
@@ -16,7 +16,9 @@
           </div>
             <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted">{{$job->creator}}</h6>
+              <p class="card-text">Contacto: {{$job->email_creator}}</p>
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
+              <p class="card-text">{{$job->payment}}€</p>
 
               <form action="/jobs/{{$job->id}}" method="post">
                 @csrf

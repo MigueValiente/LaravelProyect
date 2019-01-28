@@ -135,3 +135,7 @@
     </div>
   @endif
 </div>
+
+@push('scripts')
+    <script src="{{ mix('/js/validations/jobValidation.js') }}" defer ></script>
+@endpush

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Job;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
+use Illuminate\Support\Str;
 
 class JobsController extends Controller
 {
@@ -33,12 +34,12 @@ class JobsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\JobRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(JobRequest $request)
     {
-        Job::create([
+      Job::create([
           'job_name' => request('job_name'),
           'creator' => request('creator'),
           'description' => request('description'),
@@ -50,21 +51,6 @@ class JobsController extends Controller
           'uuid' => Str::uuid(),
           'expired_at' => request('expired_at')
         ]);
-        // $job = new Job;
-        //
-        // $job->job_name=request('job_name');
-        // $job->creator=request('creator');
-        // $job->description=request('description');
-        // $job->province=request('province');
-        // $job->payment=request('payment');
-        // $job->category=request('category');
-        // $job->uuid=Str::uuid();
-        // $job->ip_creator=request('ip_creator');
-        // $job->slug= str_slug($job->job_name,'-');
-        // $job->expired_at=request('expired_at');
-        //
-        // $job->save();
-
         return redirect('/');
     }
 
@@ -96,7 +82,7 @@ class JobsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\JobRequest  $request
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
