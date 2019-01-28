@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use Illuminate\Http\Request;
+use App\Http\Requests\JobRequest;
 
 class JobsController extends Controller
 {
@@ -14,7 +15,9 @@ class JobsController extends Controller
      */
     public function index()
     {
-        return redirect('/');
+      $jobs = Job::paginate(10);
+
+      return view('public.jobs.index')->withJobs($jobs);
     }
 
     /**
@@ -33,16 +36,34 @@ class JobsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
-        $job = new Job;
-
-        $job->job_name=request('job_name');
-        $job->creator=request('creator');
-        $job->description=request('description');
-        $job->slug= str_slug($job->job_name,'-');
-
-        $job->save();
+        Job::create([
+          'job_name' => request('job_name'),
+          'creator' => request('creator'),
+          'description' => request('description'),
+          'email_creator' => request('email_creator'),
+          'payment' => request('payment'),
+          'category' => request('category'),
+          'slug' => str_slug(request('job_name'), '-'),
+          'province' => request('province'),
+          'uuid' => Str::uuid(),
+          'expired_at' => request('expired_at')
+        ]);
+        // $job = new Job;
+        //
+        // $job->job_name=request('job_name');
+        // $job->creator=request('creator');
+        // $job->description=request('description');
+        // $job->province=request('province');
+        // $job->payment=request('payment');
+        // $job->category=request('category');
+        // $job->uuid=Str::uuid();
+        // $job->ip_creator=request('ip_creator');
+        // $job->slug= str_slug($job->job_name,'-');
+        // $job->expired_at=request('expired_at');
+        //
+        // $job->save();
 
         return redirect('/');
     }
@@ -55,7 +76,7 @@ class JobsController extends Controller
      */
     public function show($slug)
     {
-        $job = Job::findOrFail($slug);
+        $job = Job::where('slug', $slug)->firstOrFail();
 
         return view('public.jobs.show', ['job' => $job]);
     }
@@ -66,9 +87,8 @@ class JobsController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit(Job $job)
     {
-        $job = Job::findOrFail($slug);
 
         return view('public.books.edit', ['job' => $job]);
     }
@@ -80,16 +100,20 @@ class JobsController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(JobRequest $request,Job $job)
     {
-        $job = Job::findOrFail($id);
 
-        $job->job_name=request('job_name');
-        $job->creator=request('creator');
-        $job->description=request('description');
-        $job->slug= str_slug($job->job_name,'-');
-
-        $job->update();
+        $job->update([
+          'job_name' => request('job_name'),
+          'creator' => request('creator'),
+          'description' => request('description'),
+          'email_creator' => request('email_creator'),
+          'payment' => request('payment'),
+          'category' => request('category'),
+          'slug' => str_slug(request('job_name'), '-'),
+          'province' => request('province'),
+          'expired_at' => request('expired_at')
+        ]);
 
         return redirect('/jobs/'.$job->slug);
     }
@@ -100,9 +124,9 @@ class JobsController extends Controller
      * @param  \App\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy(Job $job)
     {
-        $job = Job::findOrFail($slug)->delete();
+        $job->delete();
 
         return redirect('/');
     }

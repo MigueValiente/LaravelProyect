@@ -10,8 +10,7 @@ class PagesController extends Controller
   *
   */
   public function index(){
-      $trabajos = \App\Job::all();
-      return view('public.pages.index')->withTrabajos($trabajos);
+      return view('public.pages.index');
   }
 
   public function contact(){
