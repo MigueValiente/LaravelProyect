@@ -3,7 +3,7 @@
 @section('title','Añadir Nuevo Trabajo')
 
 @section('content')
-  <form action="/jobs" method="post">
+  <form action="/jobs" method="post" novalidate>
 
     @csrf
 

@@ -90,7 +90,7 @@ class JobsController extends Controller
     public function edit(Job $job)
     {
 
-        return view('public.books.edit', ['job' => $job]);
+        return view('public.jobs.edit', ['job' => $job]);
     }
 
     /**

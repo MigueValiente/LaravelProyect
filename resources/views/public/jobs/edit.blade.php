@@ -3,7 +3,7 @@
 @section('title','Editar Trabajo')
 
 @section('content')
-  <form action="/jobs/{{$job->id}}" method="post">
+  <form action="/jobs/{{$job->id}}" method="post" novalidate>
 
     @csrf
 

@@ -128,7 +128,7 @@
 
 <div class="form-group">
   <label for="expired_at">Fecha de Expiración</label>
-  <input type="date" id="expired_at" class="form-control  {{$errors->has('expired_at')?"is-invalid":""}}" name="expired_at" required>
+  <input type="date" id="expired_at" class="form-control  {{$errors->has('expired_at')?"is-invalid":""}}" name="expired_at" value="{{isset($job)?$job->expired_at:old('expired_at')}}" required>
   @if ($errors->has('expired_at'))
     <div class="invalid-feedback">
         {{$errors->first('expired_at')}}

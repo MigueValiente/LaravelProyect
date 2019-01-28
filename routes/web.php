@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->name('root');
 
-Route::get('contact', 'PagesController@contact');
+Route::get('contact', 'PagesController@contact')->name('contact');
 
-Route::get('about', 'PagesController@about');
+Route::get('about', 'PagesController@about')->name('about');
 
-Route::get('cookies', 'PagesController@cookies');
+Route::get('cookies', 'PagesController@cookies')->name('cookies');
 
-Route::get('login', 'PagesController@login');
+Route::get('login', 'PagesController@login')->name('login');
 
-Route::get('avisoLegal', 'PagesController@avisoLegal');
+Route::get('avisoLegal', 'PagesController@avisoLegal')->name('avisoLegal');
 
 Route::resource('/jobs', 'JobsController');

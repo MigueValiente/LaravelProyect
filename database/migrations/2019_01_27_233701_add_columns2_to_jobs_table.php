@@ -14,10 +14,10 @@ class AddColumns2ToJobsTable extends Migration
     public function up()
     {
         Schema::table('jobs', function (Blueprint $table) {
-            $table->enum('category',['hosteleria','transporte','buzoneo','alimentacion'])->after('payment');
+            $table->enum('category',['hosteleria','transporte','buzoneo','alimentacion'])->after('payment')->nullable();
             $table->uuid('uuid')->after('id');
             $table->string('email_creator')->after('uuid');
-            $table->date('expired_at')-after('category');
+            $table->date('expired_at')->after('category');
         });
     }
 
@@ -33,10 +33,6 @@ class AddColumns2ToJobsTable extends Migration
           $table->dropColumn('uuid');
           $table->dropColumn('email_creator');
           $table->dropColumn('expired_at');
-          $table->dropColumn('id_client');
-          $table->dropColumn('client_contact');
-          $table->dropColumn('id_employee');
-          $table->dropColumn('employee_contact');
         });
     }
 }
