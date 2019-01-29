@@ -136,6 +136,10 @@
   @endif
 </div>
 
+@push('estilos')
+  <link href="{{ mix('css/formularios/jobForm.css') }}" rel="stylesheet">
+@endpush
+
 @push('scripts')
-    <script src="{{ mix('/js/validations/jobValidation.js') }}" defer ></script>
+  <script src="{{ mix('/js/validations/jobValidation.js') }}" defer ></script>
 @endpush

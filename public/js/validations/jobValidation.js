@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/js/validations/jobValidation.js */"./resources/js/validations/jobValidation.js");
+module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/working/resources/js/validations/jobValidation.js */"./resources/js/validations/jobValidation.js");
 
 
 /***/ })

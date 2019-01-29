@@ -9,7 +9,7 @@
 
     @include('public.jobs.partials.form')
 
-    <button type="submit" class="btn btn-primary" >Guardar Trabajo</button>
+    <button id="saveButton" type="submit" class="btn btn-primary" >Guardar Trabajo</button>
 
   </form>
 @endsection
