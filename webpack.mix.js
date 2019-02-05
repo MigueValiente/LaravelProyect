@@ -12,9 +12,10 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-.js('resources/js/validations/jobValidation.js', 'public/js/validations/')
-.sass('resources/sass/formularios/jobForm.scss', 'public/css/formularios/')
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/validations/jobValidation.js', 'public/js/validations/')
+    .sass('resources/sass/formularios/jobForm.scss', 'public/css/formularios/')
+    .sass('resources/sass/jobs/indexJobs.scss', 'public/css/jobs/')
 
 if (mix.inProduction()) {
    mix.version();

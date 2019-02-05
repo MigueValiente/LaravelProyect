@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/formularios/jobForm.css": "/css/formularios/jobForm.css",
+    "/css/jobs/indexJobs.css": "/css/jobs/indexJobs.css",
     "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
 }

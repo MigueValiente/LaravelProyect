@@ -11,3 +11,24 @@
   @include border-radius(5px);
   background-color: $colorInput;
 }
+
+%border-Hereditary{
+  border: 1px solid black;
+  background-color:  #e6e6e6;
+}
+
+.correcto{
+  @extend %border-Hereditary;
+  border-color: $correctInput;
+}
+
+.incorrecto{
+  @extend %border-Hereditary;
+  border-color: $incorrectInput;
+}
+
+@each $input,$color in $inputMap{
+  .#{$input}{
+    background-color: $color;
+  }
+}
