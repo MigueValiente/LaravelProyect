@@ -2,6 +2,9 @@
 
 ## Esta aplicación nace con el objetivo de ayudar a jóvenes emprendedores, tanto en el ámbito económico como en el personal. Aprederán a ser independientes y a valorar el esfuerzo que se debe realizar para ganarse sus propios ahorros.
 
+## Modelado de la base de datos
+![modelado de la base de datos](resources/images/BD LaravelProject.png)
+
 # Guía de uso
 
 ## A continuación daré los pasos a seguir para el correcto uso de la app:

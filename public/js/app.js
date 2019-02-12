@@ -48126,10 +48126,10 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/miguevaliente/Sites/working/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/miguevaliente/Sites/working/resources/sass/app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! /home/miguevaliente/Sites/working/resources/sass/formularios/jobForm.scss */"./resources/sass/formularios/jobForm.scss");
-module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/working/resources/sass/jobs/indexJobs.scss */"./resources/sass/jobs/indexJobs.scss");
+__webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/sass/formularios/jobForm.scss */"./resources/sass/formularios/jobForm.scss");
+module.exports = __webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/sass/jobs/indexJobs.scss */"./resources/sass/jobs/indexJobs.scss");
 
 
 /***/ })

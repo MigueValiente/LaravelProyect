@@ -15,9 +15,14 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
+            $table->uuid('uuid');
             $table->string('job_name');
-            $table->string('creator');
+            $table->string('slug')->unique();
             $table->text('description');
+            $table->string('province')->nullable();
+            $table->double('payment', 8,2);
+            $table->enum('category',['hosteleria','transporte','buzoneo','alimentacion'])->nullable();
+            $table->date('expired_at');
             $table->timestamps();
         });
     }
