@@ -40,7 +40,20 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="{{ route('jobs.index') }}">List</a>
+                          @auth
                           <a class="dropdown-item" href="{{ route('jobs.create') }}">Create</a>
+                          @endauth
+                        </div>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Companies
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="{{ route('companies.index') }}">List</a>
+                          @auth
+                          <a class="dropdown-item" href="{{ route('companies.create') }}">Create</a>
+                          @endauth
                         </div>
                       </li>
                     </ul>

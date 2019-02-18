@@ -9,7 +9,7 @@ $factory->define(App\Job::class, function (Faker $faker) {
     return [
         'job_name'        => $job_name,
         'slug'            => str_slug($job_name, "-"),
-        'creator'         => $faker->firstName()." ".$faker->lastName(),
+        'creator_id'      => random_int(1,10),
         'description'     => $faker->text(50),
         'payment'         => $faker->randomFloat(NULL,0,1000),
         'uuid'            => $faker->uuid(),

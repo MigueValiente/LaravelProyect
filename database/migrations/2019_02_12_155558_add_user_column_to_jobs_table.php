@@ -14,7 +14,7 @@ class AddUserColumnToJobsTable extends Migration
     public function up()
     {
         Schema::table('jobs', function (Blueprint $table) {
-          $table->integer('creator_id')->unsigned();
+          $table->integer('creator_id')->unsigned()->after('uuid');
 
           $table->foreign('creator_id')->references('id')->on('users')->onDelete('cascade');
         });
