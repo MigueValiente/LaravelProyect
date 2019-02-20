@@ -42,7 +42,15 @@ class CompaniesController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-        //
+        Company::create([
+            'name' => request('name'),
+            'slug' => str_slug(request('name'),'-'),
+            'web' => request('web'),
+            'address' => request('address'),
+            'email' => request('email'),
+        ]);
+  
+        return redirect('/');
     }
 
     /**
@@ -51,9 +59,11 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $company = Company::where('slug', $slug)->firstOrFail();
+
+        return view('public.companies.show', ['company' => $company]);
     }
 
     /**
@@ -62,9 +72,9 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Company $company)
     {
-        //
+        return view('public.companies.edit',compact('company'));
     }
 
     /**
@@ -74,9 +84,17 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, Company $company)
     {
-        //
+        $company->update([
+            'name' => request('name'),
+            'slug' => str_slug(request('name'), "-"),
+            'address' => request('address'),
+            'web' => request('web'),
+            'email' => request('email')
+        ]);
+  
+        return redirect('/companies/'.$company->slug);
     }
 
     /**
@@ -85,8 +103,10 @@ class CompaniesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+        $company->delete();
+
+        return redirect('/');
     }
 }

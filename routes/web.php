@@ -19,6 +19,8 @@ Route::get('avisoLegal', 'PagesController@avisoLegal')->name('avisoLegal');
 
 Route::resource('/jobs', 'JobsController');
 
+Route::resource('/companies','CompaniesController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
