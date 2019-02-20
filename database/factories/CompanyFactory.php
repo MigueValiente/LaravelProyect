@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Company;
 
 $factory->define(Company::class, function (Faker $faker) {
   $companyName = $faker->company;
@@ -9,6 +10,6 @@ $factory->define(Company::class, function (Faker $faker) {
     'slug'      => str_slug($companyName,'-'),
     'address'   => $faker->address,
     'web'       => $faker->domainName,
-    'email'     => $faker->companyEmail
+    'email'     => $faker->companyEmail,
     ];
 });

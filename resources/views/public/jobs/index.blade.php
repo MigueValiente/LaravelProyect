@@ -15,8 +15,8 @@
             {{$job->job_name}}
           </div>
             <div class="card-body">
-              <h6 class="card-subtitle mb-2 text-muted">{{$job->creator}}</h6>
-              <p class="card-text">Contacto: {{$job->email_creator}}</p>
+              <h5 class="card-subtitle mb-2 text-muted">{{$job->creator->name}}</h5>
+              <p class="card-text">Company: {{$job->company->name}}</p>
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
               <p class="card-text">{{$job->payment}}€</p>
 

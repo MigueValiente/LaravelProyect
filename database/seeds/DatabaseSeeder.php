@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $users = factory(App\User::class, 10)->create();
-        factory(App\Publisher::class, 5)->create();
-        $jobs = factory(App\Book::class, 20)->create();
+        $companies=factory(App\Company::class, 5)->create();
+        $jobs = factory(App\Job::class, 20)->create();
     }
 
-    $books->each(function(App\Job $job) use($users){
+    /*$jobs->each(function(App\Job $job) use($users){
           $job->authors()->attach(
               $users->random(random_int(1,10))
             );
-        });
+        });*/
 }

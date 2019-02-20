@@ -20,6 +20,6 @@ class Job extends Model
 
     public function aplicant()
     {
-      return $this->belongsTo('App\User');
+      return $this->belongsToMany('App\User');
     }
 }

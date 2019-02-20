@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Str;
@@ -28,7 +29,9 @@ class JobsController extends Controller
      */
     public function create()
     {
-        return view('public.jobs.create');
+        $companies = Company::all();
+
+        return view('public.jobs.create', ['companies' => $companies]);
     }
 
     /**
@@ -41,7 +44,7 @@ class JobsController extends Controller
     {
       Job::create([
           'job_name' => request('job_name'),
-          'creator' => request('creator'),
+          'creator_id' => $request->user()->id,
           'description' => request('description'),
           'email_creator' => request('email_creator'),
           'payment' => request('payment'),
@@ -76,7 +79,9 @@ class JobsController extends Controller
     public function edit(Job $job)
     {
 
-        return view('public.jobs.edit', ['job' => $job]);
+        $companies = Companies::all();
+
+        return view('public.jobs.edit', ['job' => $job,'companies' => $companies]);
     }
 
     /**
