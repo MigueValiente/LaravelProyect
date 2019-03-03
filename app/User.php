@@ -32,9 +32,9 @@ class User extends Authenticatable
     {
       return $this->hasMany(Job::class);
     }
-    
+
     public function applyJobs()
     {
-        return $this->belongsToMany(Job::class);
+      return $this->belongsToMany(Job::class);
     }
 }

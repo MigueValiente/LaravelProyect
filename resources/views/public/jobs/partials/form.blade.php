@@ -19,6 +19,33 @@
 </div>
 
 <div class="form-group">
+  <div class="row d-flex align-items-end">
+    <div class="col-10">
+      <label for="company">Company</label>
+      <select class="form-control {{ $errors->has('company')?"is-invalid":"" }}" id="company" name="company">
+        @foreach($companies as $company)
+          <option value="{{ $company->id }}"
+            @if(!$errors->isEmpty())
+              {{old('company') == $company->id?" selected":""}}
+            @elseif (isset($book))
+              {{$company->id == $book->company_id?" selected":""}}
+            @endif
+          >{{ $company->name }}</option>
+        @endforeach
+      </select>
+      @if( $errors->has('company'))
+      <div class="invalid-feedback">
+          {{ $errors->first('company') }}
+      </div>
+      @endif
+    </div>
+    <div class="col-2">
+        <a class="btn btn-primary" href="{{ route('companies.create') }}" target="_blank">New Company</a>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
   <label for="description">Descripcion</label>
   <textarea class="form-control {{$errors->has('description')?"is-invalid":""}}" id="description" name="description" rows="3" placeholder="Descripcion del trabajo" required>{{isset($job)?$job->description:old('description')}}</textarea>
   @if ($errors->has('description'))

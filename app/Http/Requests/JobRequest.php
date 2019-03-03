@@ -25,10 +25,10 @@ class JobRequest extends FormRequest
     {
         return [
           'job_name'      => ['required','min:5'],
-          'creator'       => ['required','min:5'],
           'description'   => ['required','min:10'],
           'province'      => ['required'],
           'payment'       => ['required','numeric'],
+          'company'     => 'required|exists:company,id',
           'category'      => ['required'],
           'email_creator' => ['required','email'],
           'expired_at'    => ['required', 'date']
@@ -40,13 +40,13 @@ class JobRequest extends FormRequest
       return [
         'job_name.required'       => 'El :attribute es requerido',
         'job_name.min'            => 'El :attribute debe tener al menos 5 caracteres',
-        'creator.required'        => 'El :attribute es requerido',
-        'creator.min'             => 'El :attribute debe tener al menos 5 caracteres',
         'description.required'    => 'La :attribute es requerido',
         'description.min'         => 'La :attribute debe tener al menos 10 caracteres',
         'province.required'       => 'Debe seleccionar una :attribute',
         'payment.required'        => 'Debe introducir un :attribute',
         'payment.numeric'         => 'El :attribute no cumple con el formato requerido',
+        'company.required' =>'Debe elegir una :attribute',
+        'company.exists'    => 'La :attribute no existe',
         'category.required'       => 'Debe seleccionar una :attribute',
         'email_creator.required'  => 'El :attribute es requerido',
         'email_creator.email'     => 'El :attribute no cumple con el formato de email',

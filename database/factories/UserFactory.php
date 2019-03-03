@@ -14,7 +14,7 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
-  $name = $faker->name;
+  $name = $faker->firstName." ".$faker->lastName;
   $roles = ['applicant','provider'];
     return [
         'name'                        => $name,
