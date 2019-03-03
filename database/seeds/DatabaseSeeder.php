@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder
         $users = factory(App\User::class, 10)->create();
         factory(App\Publisher::class, 5)->create();
         $jobs = factory(App\Book::class, 20)->create();
-    }
 
-    $books->each(function(App\Job $job) use($users){
-          $job->authors()->attach(
-              $users->random(random_int(1,10))
-            );
-        });
+
+        $jobs->each(function(App\Job $job) use ($users){
+            $job->applicant()->attach(
+                $users->random(random_int(1,3))
+                );
+            });
+    }
+    
 }

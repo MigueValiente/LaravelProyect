@@ -18,8 +18,8 @@ class Job extends Model
       return $this->belongsTo('App\Company');
     }
 
-    public function aplicant()
+    public function applicant()
     {
-      return $this->belongsTo('App\User');
+      return $this->belongsToMany('App\User');
     }
 }
