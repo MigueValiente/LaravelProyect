@@ -10,6 +10,8 @@ class Company extends Model
         'name', 'address', 'web', 'email','slug'
     ];
 
+    // protected $table = ' companies';
+
     public function jobs()
     {
       return $this->hasMany(Job::class);

@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Job;
+use App\Observers\JobObserver;
 use Illuminate\Support\ServiceProvider;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Job::observe(JobObserver::class);
     }
 
     /**
@@ -23,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->isLocal()) 
+        {
+            $this->app->register(TelescopeServiceProvider::class);
+        }
     }
 }

@@ -10,7 +10,7 @@
 
 <div class="form-group">
   <label for="creator">Creador</label>
-  <input type="text" id="creator" class="form-control {{$errors->has('creator')?"is-invalid":""}}" name="creator" placeholder="Introduzca su nombre" value="{{isset($job)?$job->creator:old('creator')}}" required>
+  <input type="text" id="creator" class="form-control {{$errors->has('creator')?"is-invalid":""}}" name="creator" placeholder="Introduzca su nombre" value="{{isset($job)?$job->creator->name:old('creator')}}" required>
   @if ($errors->has('creator'))
     <div class="invalid-feedback">
         {{$errors->first('creator')}}
@@ -55,7 +55,7 @@
   @endif
 </div>
 
-<div class="form-group">
+{{-- <div class="form-group">
   <label for="email_creator">Email</label>
   <input type="text" id="email_creator" class="form-control  {{$errors->has('email_creator')?"is-invalid":""}}" name="email_creator" placeholder="Introduzca su email" value="{{isset($job)?$job->email_creator:old('email_creator')}}" required>
   @if ($errors->has('email_creator'))
@@ -63,7 +63,7 @@
         {{$errors->first('email_creator')}}
     </div>
   @endif
-</div>
+</div> --}}
 
 <div class="form-group">
   <label for="province">Provincia</label>

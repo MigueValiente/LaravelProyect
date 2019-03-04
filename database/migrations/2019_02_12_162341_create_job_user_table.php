@@ -15,12 +15,12 @@ class CreateJobUserTable extends Migration
     {
         Schema::create('job_user', function (Blueprint $table) {
           $table->unsignedInteger('job_id');
-          $table->unsignedInteger('applicant_id');
+          $table->unsignedInteger('user_id');
 
-          $table->primary(['job_id','applicant_id']);
+          $table->primary(['job_id','user_id']);
 
           $table->foreign('job_id')->references('id')->on('jobs');
-          $table->foreign('applicant_id')->references('id')->on('users');
+          $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

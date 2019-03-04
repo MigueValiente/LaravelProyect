@@ -10,6 +10,16 @@ use Illuminate\Support\Str;
 
 class JobsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', [
+            'only' => ['create' , 'store', 'edit', 'update', 'destroy']
+        ]);
+        $this->middleware('can:touch,job',[
+            'only' => ['edit','update','destroy']
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,11 +52,12 @@ class JobsController extends Controller
      */
     public function store(JobRequest $request)
     {
+        // dd($request);
       Job::create([
           'job_name' => request('job_name'),
           'creator_id' => $request->user()->id,
           'description' => request('description'),
-          'email_creator' => request('email_creator'),
+          'company_id'  => request('company'),
           'payment' => request('payment'),
           'category' => request('category'),
           'slug' => str_slug(request('job_name'), '-'),
@@ -79,7 +90,7 @@ class JobsController extends Controller
     public function edit(Job $job)
     {
 
-        $companies = Companies::all();
+        $companies = Company::all();
 
         return view('public.jobs.edit', ['job' => $job,'companies' => $companies]);
     }
@@ -98,9 +109,10 @@ class JobsController extends Controller
           'job_name' => request('job_name'),
           'creator' => request('creator'),
           'description' => request('description'),
-          'email_creator' => request('email_creator'),
+
           'payment' => request('payment'),
           'category' => request('category'),
+          'company_id' => request('company'),
           'slug' => str_slug(request('job_name'), '-'),
           'province' => request('province'),
           'expired_at' => request('expired_at')

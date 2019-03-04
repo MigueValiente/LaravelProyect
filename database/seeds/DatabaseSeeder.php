@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $users = factory(App\User::class, 10)->create();
-        factory(App\Publisher::class, 5)->create();
-        $jobs = factory(App\Book::class, 20)->create();
+        factory(App\Company::class, 5)->create();
+        $jobs = factory(App\Job::class, 20)->create();
 
 
         $jobs->each(function(App\Job $job) use ($users){

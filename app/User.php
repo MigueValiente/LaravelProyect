@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role'
+        'name', 'email', 'password','slug','role'
     ];
 
     /**
@@ -36,5 +36,10 @@ class User extends Authenticatable
     public function applyJobs()
     {
       return $this->belongsToMany(Job::class);
+    }
+
+    public function owns(Job $job)
+    {
+        return $this->id == $job->user_id;
     }
 }

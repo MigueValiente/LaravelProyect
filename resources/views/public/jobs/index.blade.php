@@ -15,19 +15,13 @@
             {{$job->job_name}}
           </div>
             <div class="card-body">
-              <h5 class="card-subtitle mb-2 text-muted">{{$job->creator->name}}</h5>
-              <p class="card-text">Company: {{$job->company->name}}</p>
+              <h4 class="card-subtitle mb-2 text-muted">Creator: {{$job->creator->name}}</h4>
+              <p class="card-text">Creator Email: {{$job->creator->email}}</p>
+              <h5 class="card-text">Company: {{$job->company->name}}</h5>
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
               <p class="card-text">{{$job->payment}}€</p>
-
-              <form action="/jobs/{{$job->id}}" method="post">
-                @csrf
-                @method('delete')
-              <button type="submit" class="btn btn-danger btn-sm" >Eliminar</button>
-              </form>
-
+              @include("public.jobs.partials.buttons")
               <a href="/jobs/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a>
-              <a href="/jobs/{{$job->id}}/edit" class="btn btn-warning btn-sm float-right mr-2">Editar</a>
 
             </div>
         </div>

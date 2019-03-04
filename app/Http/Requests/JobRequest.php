@@ -28,9 +28,8 @@ class JobRequest extends FormRequest
           'description'   => ['required','min:10'],
           'province'      => ['required'],
           'payment'       => ['required','numeric'],
-          'company'     => 'required|exists:company,id',
+          'company'     => 'required|exists:companies,id',
           'category'      => ['required'],
-          'email_creator' => ['required','email'],
           'expired_at'    => ['required', 'date']
         ];
     }
@@ -48,8 +47,6 @@ class JobRequest extends FormRequest
         'company.required' =>'Debe elegir una :attribute',
         'company.exists'    => 'La :attribute no existe',
         'category.required'       => 'Debe seleccionar una :attribute',
-        'email_creator.required'  => 'El :attribute es requerido',
-        'email_creator.email'     => 'El :attribute no cumple con el formato de email',
         'expired_at.required'     => 'La :attribute es requerida',
         'expired_at.date'         => 'La :attribute no cumple con el formato'
       ];
@@ -64,7 +61,6 @@ class JobRequest extends FormRequest
             'province'      => 'provincia',
             'payment'       => 'sueldo',
             'category'      => 'categoria',
-            'email_creator' => 'email',
             'expired_at'    => 'fecha de expiracion'
         ];
     }
