@@ -4,4 +4,4 @@ document.addEventListener('DOMContentLoaded',function(){
         let valor = event.target.value;
         valor = trim(valor);
     });
-})
+});

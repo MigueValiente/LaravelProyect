@@ -32,7 +32,7 @@
       <div class="d-flex justify-content-center">
           {{ $jobs->links() }}
       </div>
-      @push('estilos')
+@endsection
+@push('estilos')
         <link href="{{ mix('css/jobs/indexJobs.css') }}" rel="stylesheet">
       @endpush
-@endsection

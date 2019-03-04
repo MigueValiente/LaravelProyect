@@ -1,7 +1,9 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/formularios/jobForm.css": "/css/formularios/jobForm.css",
-    "/css/jobs/indexJobs.css": "/css/jobs/indexJobs.css",
-    "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
+    "/js/app.js": "/js/app.js?id=224e8ab7020b15e30416",
+    "/css/app.css": "/css/app.css?id=f7aa23ada10c829556f5",
+    "/css/formularios/jobForm.css": "/css/formularios/jobForm.css?id=e982ede74ed5ce3f3e03",
+    "/css/jobs/indexJobs.css": "/css/jobs/indexJobs.css?id=d41d8cd98f00b204e980",
+    "/css/mapStyle/map.css": "/css/mapStyle/map.css?id=dac28ab1d6944636243f",
+    "/js/mapScript/map.js": "/js/mapScript/map.js?id=f5f845cb52289edec153",
+    "/js/validations/jobValidation.js": "/js/validations/jobValidation.js?id=56f4e1f7d7b79e928254"
 }

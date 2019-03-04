@@ -16,6 +16,8 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/validations/jobValidation.js', 'public/js/validations/')
     .sass('resources/sass/formularios/jobForm.scss', 'public/css/formularios/')
     .sass('resources/sass/jobs/indexJobs.scss', 'public/css/jobs/')
+    .sass('resources/sass/mapStyle/map.scss', 'public/css/mapStyle/')
+    .js('resources/js/mapScript/map.js', 'public/js/mapScript/')
 
 if (mix.inProduction()) {
    mix.version();

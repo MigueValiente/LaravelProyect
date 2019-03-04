@@ -14,6 +14,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         $users = factory(App\User::class, 10)->create();
+        $admin = factory(App\User::class)->create([
+            'name' => 'admin',
+            'email' => 'admin@example.org',
+            'role'    => 'admin',
+       ]);
         factory(App\Company::class, 5)->create();
         $jobs = factory(App\Job::class, 20)->create();
 

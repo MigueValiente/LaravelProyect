@@ -19,12 +19,12 @@ class JobPolicy
      */
     public function touch(User $user, Job $job)
     {
-        return $job->creator_id == $user->id || $user->id == 13;
+        return $job->creator_id == $user->id || $user->role == "admin";
     }
 
     public function before($user, $ability)
     {
-        if($user->id == 13) 
+        if($user->role == "admin") 
             return true;
     }
 }
