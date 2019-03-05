@@ -1,11 +1,29 @@
-<div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control {{ $errors->has('name')?"is-invalid":"" }}" id="name" name="name" placeholder="Introduce the company name" value="{{ isset($company)?$company->name:old('name') }}" required>
-    @if( $errors->has('name'))
-    <div class="invalid-feedback">
-        {{ $errors->first('name') }}
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control {{ $errors->has('name')?"is-invalid":"" }}" id="name" name="name" placeholder="Introduce the company name" value="{{ isset($company)?$company->name:old('name') }}" required>
+            @if( $errors->has('name'))
+            <div class="invalid-feedback">
+                {{ $errors->first('name') }}
+            </div>
+            @endif
+        </div>
     </div>
-    @endif
+    <div class="col">
+        @if(isset($company))
+                  <img class="img-fluid" src="http://laravelproyect.test/storage/{{ $company->logo }}" alt="Company's logo">
+                @endif
+                <div class="form-group {{ $errors->has('logo')?"is-invalid":"" }}">
+                    <label for="logo">Logo</label>
+                    <input type="file" class="form-control-file mt-1" id="logo" name="logo" required>
+                    @if( $errors->has('logo'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('logo') }}
+                    </div>
+                @endif
+                </div>
+    </div>
 </div>
 <div class="form-group">
     <label for="address">Address</label>

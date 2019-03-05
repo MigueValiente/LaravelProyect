@@ -4,7 +4,8 @@
 
 @section('content')
 <h1>Add New Company</h1>
-<form action="/companies" method="post" novalidate>
+<form action="/companies" method="post" enctype="multipart/form-data" novalidate>
+
 
     @csrf
 

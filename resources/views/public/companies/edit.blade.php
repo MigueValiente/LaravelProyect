@@ -4,7 +4,7 @@
 
 @section('content')
 <h1>Edit Company</h1>
-<form action="/companies/{{ $company->id }}" method="post" novalidate>
+<form action="/companies/{{ $company->id }}" method="post" enctype="multipart/form-data"  novalidate>
 
     @csrf
     @method('patch')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Requests\CompanyRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CompaniesController extends Controller
 {
@@ -44,12 +45,15 @@ class CompaniesController extends Controller
      */
     public function store(CompanyRequest $request)
     {
+        $logo = $request->file('logo');
+
         Company::create([
             'name' => request('name'),
             'slug' => str_slug(request('name'),'-'),
             'web' => request('web'),
             'address' => request('address'),
             'email' => request('email'),
+            'logo' => $logo->store('logos','public'),
         ]);
   
         return redirect('/');
@@ -88,12 +92,19 @@ class CompaniesController extends Controller
      */
     public function update(CompanyRequest $request, Company $company)
     {
+        $logo = $request->file('logo');
+
+        if($logo && $company->logo){
+            Storage::disk('public')->delete($company->logo);
+        }
+
         $company->update([
             'name' => request('name'),
             'slug' => str_slug(request('name'), "-"),
             'address' => request('address'),
             'web' => request('web'),
-            'email' => request('email')
+            'email' => request('email'),
+            'logo' => ($logo?$logo->store('logos','public'):$company->logo),
         ]);
   
         return redirect('/companies/'.$company->slug);
