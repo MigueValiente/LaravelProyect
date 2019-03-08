@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Requests\CompanyRequest;
+use App\Http\Requests\CompanyRequestAjax;
 use Illuminate\Support\Facades\Storage;
 
 class CompaniesController extends Controller
@@ -121,5 +122,37 @@ class CompaniesController extends Controller
         $company->delete();
 
         return redirect('/');
+    }
+
+    public function createCompanyAjax(CompanyRequestAjax $request){
+
+        $logo = $request->file('logo');
+        $resultadoLogo = NULL;
+
+        if($logo != NULL){
+            $resultadoLogo = $logo->store('logos','public');
+        }
+
+        $company = Company::create([
+            'name' => request('name'),
+            'slug' => str_slug(request('name'),'-'),
+            'web' => request('web'),
+            'address' => request('address'),
+            'email' => request('email'),
+            'logo' => $resultadoLogo,
+          ]);
+
+          return view("public.companies.partials.companyData",['company' => $company]);
+    }
+
+    public function nuevoFormulario(){
+        return view('public.companies.partials.form');
+    }
+
+    public function deleteAjax($id){
+        $company = Company::where("id",$id)->firstOrFail();
+
+        $company->delete();
+        return $company->name;
     }
 }

@@ -16,6 +16,10 @@ Route::get('contact', 'PagesController@contact')->name('contact');
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('cookies', 'PagesController@cookies')->name('cookies');
 Route::get('avisoLegal', 'PagesController@avisoLegal')->name('avisoLegal');
+Route::post('/companies/createCompanyAjax','CompaniesController@createCompanyAjax');
+Route::get('/companies/nuevoFormulario','CompaniesController@nuevoFormulario');
+Route::delete('/companies/borrarAjax/{idLibro}','CompaniesController@deleteAjax');
+Route::get('/jobs/paginar/{numeroElementos}', 'JobsController@paginar');
 
 Route::resource('/jobs', 'JobsController');
 

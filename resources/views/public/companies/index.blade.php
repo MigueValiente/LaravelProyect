@@ -10,7 +10,7 @@
     </div>
 
     @forelse($companies as $company)
-    <div class="card mb-2">
+    <div class="card mb-2" data-companyId="{{$company->id}}">
         <div class="card-header">
             {{ $company->name }}
         </div>
@@ -34,8 +34,16 @@
     @empty
       <p>No hay Empresas</p>
     @endforelse
-
+    
     <div class="d-flex justify-content-center">
         {{ $companies->links() }}
     </div>
+
+    @include("public.companies.partials.deleteModal")
+
+    @push('scripts')
+    {{-- Script para eliminar elementos --}}
+    <script src="{{ asset('js/companies/deleteCompany.js') }}" defer></script>
+
+    @endpush
 @endsection

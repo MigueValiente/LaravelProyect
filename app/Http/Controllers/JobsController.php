@@ -27,7 +27,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-      $jobs = Job::latest()->paginate(10);
+      $jobs = Job::latest()->paginate(5);
 
       return view('public.jobs.index')->withJobs($jobs);
     }
@@ -132,5 +132,15 @@ class JobsController extends Controller
         $job->delete();
 
         return redirect('/');
+    }
+
+    public function paginar($numElementos){
+        $jobs = Job::skip($numElementos)->take(5)->get();
+         sleep(1);
+        $vista = ""; 
+        if(count($jobs) > 0){
+                $vista = view('public.jobs.partials.jobFormat',['jobs' => $jobs]);
+        }
+        return $vista;
     }
 }

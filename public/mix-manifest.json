@@ -4,6 +4,9 @@
     "/css/formularios/jobForm.css": "/css/formularios/jobForm.css",
     "/css/jobs/indexJobs.css": "/css/jobs/indexJobs.css",
     "/css/mapStyle/map.css": "/css/mapStyle/map.css",
+    "/js/companies/createCompany.js": "/js/companies/createCompany.js",
+    "/js/companies/deleteCompany.js": "/js/companies/deleteCompany.js",
+    "/js/jobs/paginacion.js": "/js/jobs/paginacion.js",
     "/js/mapScript/map.js": "/js/mapScript/map.js",
     "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
 }
