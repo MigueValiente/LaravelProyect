@@ -3,14 +3,14 @@ Este trabajo consiste en incluir funcionalidades en javascript en proyecto de de
 Las funcionalidades a incluir son las siguientes:
 
 * Validación de un formulario en cliente. (1 punto)
-* Validación en servidor mediante ajax de un formulario de la aplicación.(1.5 puntos)
+* Validación en servidor mediante ajax de un formulario de la aplicación.(1.5 puntos)(HECHO, /public/js/companies/createCompany2,js)
 * CRUD mediante ajax en la aplicaición:
-  * Añadir(1 punto)(COMPANY)(HECHO, FALTA VALIDACION)
-  * Borrar(1.5 puntos)(COMPANY)(HECHO)
-  * Editar(1 punto)(COMPANY)
-  * Mostrar(1 punto)(COMPANY)
+  * Añadir(1 punto)(HECHO, /public/js/companies/createCompany2,js)
+  * Borrar(1.5 puntos)(HECHO, /public/js/companies/deleteCompany,js)
+  * Editar(1 punto)(HECHO, /public/js/companies/editCompany,js)
+  * Mostrar(1 punto)
 * Realizar una búsqueda mediante ajax y que muestre los resultados.(1.5 puntos)(JOBS)
-* Paginar los elementos mediante ajax.(1.5 puntos)(JOBS)(HECHO)
+* Paginar los elementos mediante ajax.(1.5 puntos)(HECHO, /public/js/jobs/paginacion,js)
 
 Todas las peticiones que se hagan al servidor debe tener su símbolo de carga correspondiente.
 

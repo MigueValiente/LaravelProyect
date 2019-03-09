@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -110,10 +110,6 @@ function asociarEventos() {
       mostrarSpinner(spinnerLoad);
       axios.get("/jobs/paginar/".concat(contador)).then(function (response) {
         if (response.data == "") {
-          /** alert("ERROR NO HAY MAS LIBROS");
-          $("p").filter("#noMoreBooks").remove();
-          $('#mostrarLibros').append("<p id='noMoreBooks'>No hay más libros que mostrar</p>");
-          */
           mostrarModal("obtainJobs");
         } else {
           $('#mostrarJobs').append(response.data);
@@ -146,14 +142,14 @@ function cerrarModal(id) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 6:
 /*!***********************************************!*\
   !*** multi ./resources/js/jobs/paginacion.js ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/js/jobs/paginacion.js */"./resources/js/jobs/paginacion.js");
+module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/LaravelProyect/resources/js/jobs/paginacion.js */"./resources/js/jobs/paginacion.js");
 
 
 /***/ })

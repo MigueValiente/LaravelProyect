@@ -142,7 +142,7 @@ L.marker([37.405389, -5.936159], {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/js/mapScript/map.js */"./resources/js/mapScript/map.js");
+module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/LaravelProyect/resources/js/mapScript/map.js */"./resources/js/mapScript/map.js");
 
 
 /***/ })

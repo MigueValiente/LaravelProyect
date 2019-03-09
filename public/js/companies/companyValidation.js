@@ -81,90 +81,24 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/companies/createCompany.js":
-/*!*************************************************!*\
-  !*** ./resources/js/companies/createCompany.js ***!
-  \*************************************************/
+/***/ "./resources/js/companies/companyValidation.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/companies/companyValidation.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function (event) {
   $("#name").on("change", validarNombre);
   $("#address").on("change", validarDireccion);
   $("#web").on("change", validarWeb);
   $("#email").on("change", validarEmail);
-  asociarEventos();
 });
-
-function asociarEventos() {
-  $('#createCompanyForm').submit(function (event) {
-    event.preventDefault();
-    validarFormularioAxios();
-    nuevoFormulario();
-  });
-}
-
-function validarFormularioAxios() {
-  var datosFormularios = $("#createCompanyForm").serialize;
-  axios.post("/register/validar", {
-    datosFormularios: datosFormularios
-  }).then(function (response) {
-    var formularioCorrecto = true;
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = response.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var campo = _step.value;
-
-        if (!gestionarErrores($("#".concat(campo)), response.data[$campo])) {
-          formularioCorrecto = false;
-        }
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return != null) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-
-    if (formularioCorrecto) {
-      var formulario = document.getElementById("createCompanyForm");
-      formulario.submit;
-    }
-  }); // let datosFormularios = $("#createCompanyForm").serialize();
-  // axios.post("/companies/createCompanyAjax",datosFormularios)
-  //   .then(function(response){
-  //     let divCompanyData = $("#companyData");
-  //     divCompanyData.append(response.data);
-  //   }).catch(function(){
-  //     alert("Ha habido un ERROR")
-  //   })
-}
-
-function nuevoFormulario() {
-  axios.get("/companies/nuevoFormulario").then(function (response) {
-    $("#createCompanyForm").html(response.data);
-    var botonEnviar = $("<button type='submit' class='btn btn-primary' name='saveCompanyButton' idea='saveCompanyButton'>Save Company</button>");
-    $("#createCompanyForm").append(botonEnviar); // eventoTitulo();
-  }).catch(function () {
-    alert("Ha habido un ERROR con el nuevo formulario");
-  });
-}
 
 function validarNombre() {
   axios.post('/companies/validar', {
@@ -227,14 +161,53 @@ function gestionarErrores(input, errores) {
   } else {
     hayErrores = true;
     input.addClass("bg-danger");
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = errores[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var error = _step.value;
+        divErrores.append("<div>" + error + "</div>");
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  } //Para quitar el spinner
+  // input.parent().next().remove();
+
+
+  return hayErrores;
+}
+
+function validarFormularioAxios() {
+  var datosFormularios = $("#createCompanyForm").serialize;
+  axios.post("/register/validar", {
+    datosFormularios: datosFormularios
+  }).then(function (response) {
+    var formularioCorrecto = true;
     var _iteratorNormalCompletion2 = true;
     var _didIteratorError2 = false;
     var _iteratorError2 = undefined;
 
     try {
-      for (var _iterator2 = errores[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var error = _step2.value;
-        divErrores.append("<div>" + error + "</div>");
+      for (var _iterator2 = response.data[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var campo = _step2.value;
+
+        if (!gestionarErrores($("#".concat(campo)), response.data[$campo])) {
+          formularioCorrecto = false;
+        }
       }
     } catch (err) {
       _didIteratorError2 = true;
@@ -250,23 +223,24 @@ function gestionarErrores(input, errores) {
         }
       }
     }
-  } //Para quitar el spinner
-  // input.parent().next().remove();
 
-
-  return hayErrores;
+    if (formularioCorrecto) {
+      var formulario = document.getElementById("createCompanyForm");
+      formulario.submit;
+    }
+  });
 }
 
 /***/ }),
 
-/***/ 3:
-/*!*******************************************************!*\
-  !*** multi ./resources/js/companies/createCompany.js ***!
-  \*******************************************************/
+/***/ 5:
+/*!***********************************************************!*\
+  !*** multi ./resources/js/companies/companyValidation.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/LaravelProyect/resources/js/companies/createCompany.js */"./resources/js/companies/createCompany.js");
+module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/LaravelProyect/resources/js/companies/companyValidation.js */"./resources/js/companies/companyValidation.js");
 
 
 /***/ })

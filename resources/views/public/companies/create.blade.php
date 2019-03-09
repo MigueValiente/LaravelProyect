@@ -16,5 +16,5 @@
 <div class="companyData" id="companyData"></div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('js/companies/createCompany.js') }}" defer></script>
+    <script src="{{ asset('js/companies/createCompany2.js') }}" defer></script>
 @endpush

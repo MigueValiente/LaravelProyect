@@ -14,3 +14,6 @@
     <button type="submit" class="btn btn-primary">Update Company</button>
 </form>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/companies/editCompany.js') }}" defer></script>
+@endpush

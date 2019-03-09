@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -133,14 +133,14 @@ function cerrarModal(id) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*******************************************************!*\
   !*** multi ./resources/js/companies/deleteCompany.js ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/migue/Sites/LaravelProyect/resources/js/companies/deleteCompany.js */"./resources/js/companies/deleteCompany.js");
+module.exports = __webpack_require__(/*! /home/miguevaliente/Sites/LaravelProyect/resources/js/companies/deleteCompany.js */"./resources/js/companies/deleteCompany.js");
 
 
 /***/ })

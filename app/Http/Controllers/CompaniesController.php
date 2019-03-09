@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Requests\CompanyRequestAjax;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
 class CompaniesController extends Controller
@@ -47,6 +48,11 @@ class CompaniesController extends Controller
     public function store(CompanyRequest $request)
     {
         $logo = $request->file('logo');
+        $resultadoLogo = NULL;
+
+        if($logo != NULL){
+            $resultadoLogo = $logo->store('logos','public');
+        }
 
         Company::create([
             'name' => request('name'),
@@ -54,7 +60,7 @@ class CompaniesController extends Controller
             'web' => request('web'),
             'address' => request('address'),
             'email' => request('email'),
-            'logo' => $logo->store('logos','public'),
+            'logo' => $resultadoLogo,
         ]);
   
         return redirect('/');
@@ -145,6 +151,26 @@ class CompaniesController extends Controller
           return view("public.companies.partials.companyData",['company' => $company]);
     }
 
+    public function updateCompanyAjax(CompanyRequestAjax $request, Company $company)
+    {
+        $logo = $request->file('logo');
+
+        if($logo && $company->logo){
+            Storage::disk('public')->delete($company->logo);
+        }
+
+        $company->update([
+            'name' => request('name'),
+            'slug' => str_slug(request('name'), "-"),
+            'address' => request('address'),
+            'web' => request('web'),
+            'email' => request('email'),
+            'logo' => ($logo?$logo->store('logos','public'):$company->logo),
+        ]);
+  
+        return redirect('/companies/'.$company->slug);
+    }
+
     public function nuevoFormulario(){
         return view('public.companies.partials.form');
     }
@@ -154,5 +180,10 @@ class CompaniesController extends Controller
 
         $company->delete();
         return $company->name;
+    }
+
+    protected function validacionCompanyAjax(CompanyRequestAjax $request){
+        //Obtenermos todos los valores y devolvemos un array vacio
+        return array();
     }
 }
