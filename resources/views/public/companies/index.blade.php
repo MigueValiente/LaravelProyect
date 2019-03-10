@@ -3,6 +3,12 @@
 @section('title', 'Company List')
 
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Companies</li>
+    </ol>
+</nav>
 <h1>Company List</h1>
 
     <div class="d-flex justify-content-center">

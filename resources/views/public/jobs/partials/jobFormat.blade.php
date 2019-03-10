@@ -10,11 +10,13 @@
               <h5 class="card-text">Company: {{$job->company->name}}</h5>
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
               <p class="card-text">{{$job->payment}}€</p>
-              @include("public.jobs.partials.buttons")
-              {{-- <a href="/jobs/moreInfoAjax/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a> --}}
-              <button type="button" data-jobSlug="{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2 showButton" id="showButton">
-                  More Info
-              </button>
+              <div class="btn-group float-right reverse" role="group">
+                {{-- <a href="/jobs/moreInfoAjax/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a> --}}
+                <button type="button" data-jobSlug="{{$job->slug}}" class="btn btn-primary float-right showButton" id="showButton">
+                    <i class="fas fa-info"></i>
+                </button>
+                @include("public.jobs.partials.buttons")
+              </div>
 
             </div>
         </div>

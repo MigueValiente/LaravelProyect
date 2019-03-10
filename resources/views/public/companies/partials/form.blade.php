@@ -3,7 +3,7 @@
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control {{ $errors->has('name')?"is-invalid":"" }}" id="name" name="name" placeholder="Introduce the company name" value="{{ isset($company)?$company->name:old('name') }}" required>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback divErrores">
                 @if ($errors->has('name'))
                     @foreach($errors->get('name') as $error)
                     <span role="alert">
@@ -37,7 +37,7 @@
 <div class="form-group">
     <label for="address">Address</label>
     <input type="text" class="form-control {{ $errors->has('address')?"is-invalid":"" }}" id="address" name="address" placeholder="Introduce the company address" value="{{ isset($company)?$company->address:old('address') }}"required>
-    <div class="invalid-feedback">
+    <div class="invalid-feedback divErrores">
         @if ($errors->has('address'))
             @foreach($errors->get('address') as $error)
             <span role="alert">
@@ -54,7 +54,7 @@
 <div class="form-group">
     <label for="email">Web</label>
     <input type="text" class="form-control {{ $errors->has('web')?"is-invalid":"" }}" id="web" name="web" rows="10" placeholder="Company Web" value="{{ isset($company)?$company->web:old('web') }}" required>
-    <div class="invalid-feedback">
+    <div class="invalid-feedback divErrores">
         @if ($errors->has('web'))
             @foreach($errors->get('web') as $error)
             <span role="alert">
@@ -71,7 +71,7 @@
 <div class="form-group">
     <label for="email">Email</label>
     <input type="text" class="form-control {{ $errors->has('email')?"is-invalid":"" }}" id="email" name="email" placeholder="Company Email" value="{{ isset($company)?$company->email:old('email') }}" required>
-    <div class="invalid-feedback">
+    <div class="invalid-feedback divErrores">
         @if ($errors->has('email'))
             @foreach($errors->get('email') as $error)
             <span role="alert">

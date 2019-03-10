@@ -118,8 +118,10 @@ function asociarEventos() {
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     validarFormulario(event.target);
-    createCompanyAjax();
-    nuevoFormulario();
+
+    if (createCompanyAjax()) {
+      nuevoFormulario();
+    }
   });
 }
 
@@ -166,7 +168,7 @@ function tieneErrores(input, errores) {
     try {
       for (var _iterator = errores[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var error = _step.value;
-        divErrores.append("<div>".concat(error, "</div>"));
+        divErrores.append("<div class=\"alert alert-danger\">".concat(error, "</div>"));
       }
     } catch (err) {
       _didIteratorError = true;
@@ -221,12 +223,15 @@ function validarFormulario(form) {
 
 function createCompanyAjax() {
   var datosFormularios = $("#createCompanyForm").serialize();
+  var resultado = false;
   axios.post("/companies/createCompanyAjax", datosFormularios).then(function (response) {
     var divCompanyData = $("#companyData");
     divCompanyData.append(response.data);
+    resultado = true;
   }).catch(function () {
     alert("Ha habido un ERROR");
   });
+  return resultado;
 }
 
 /***/ }),

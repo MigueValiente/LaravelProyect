@@ -131,7 +131,13 @@
 
 <div class="form-group">
   <label for="payment">Sueldo</label>
-  <input type="text" id="payment" class="form-control  {{$errors->has('payment')?"is-invalid":""}}" name="payment" placeholder="Introduzca un sueldo con un formato 100.0" value="{{isset($job)?$job->payment:old('payment')}}" required>
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">$</span>
+    </div>
+    <input type="text" id="payment" class="form-control  {{$errors->has('payment')?"is-invalid":""}}" name="payment" placeholder="Introduzca un sueldo con un formato 100.0" value="{{isset($job)?$job->payment:old('payment')}}" required>
+  </div>
+  
   @if ($errors->has('payment'))
     <div class="invalid-feedback">
         {{$errors->first('payment')}}

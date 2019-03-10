@@ -67,7 +67,7 @@ function gestionarErrores(input,errores){
         hayErrores = true;
         input.addClass("bg-danger");
         for (let error of errores) {
-            divErrores.append("<div>"+error+"</div>");
+            divErrores.append("<div class='alert alert-danger'>"+error+"</div>");
         }
     }
     //Para quitar el spinner
