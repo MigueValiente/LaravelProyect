@@ -31,4 +31,5 @@
 @push('scripts')
     <script src="{{ asset('js/jobs/paginacion.js') }}" defer></script>
     <script src="{{ asset('js/jobs/search.js') }}" defer></script>
+    <script src="{{ asset('js/jobs/showModalScript.js') }}" defer></script>
 @endpush

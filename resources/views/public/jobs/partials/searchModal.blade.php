@@ -8,12 +8,13 @@
                 </button>
             </div>
             <div class="modal-body">
-            <div class="progress">
-                <div id="barra" class="progress-bar progress-bar-striped progress-bar-animated" ></div>
-            </div>
+                <div class="progress">
+                    <div id="barra" class="progress-bar progress-bar-striped progress-bar-animated" ></div>
+                </div>
             </div>
             <div class="modal-footer">
 
             </div>
         </div>
     </div> 
+</div>

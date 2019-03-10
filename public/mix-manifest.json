@@ -9,6 +9,7 @@
     "/js/companies/editCompany.js": "/js/companies/editCompany.js",
     "/js/jobs/paginacion.js": "/js/jobs/paginacion.js",
     "/js/jobs/search.js": "/js/jobs/search.js",
+    "/js/jobs/showModalScript.js": "/js/jobs/showModalScript.js",
     "/js/mapScript/map.js": "/js/mapScript/map.js",
     "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
 }

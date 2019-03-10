@@ -8,7 +8,7 @@
               </button>
           </div>
           <div class="modal-body">
-              ¿Seguro que desea <strong>eliminar</strong> la compañia {{$company->name}}?
+              ¿Seguro que desea <strong>eliminar</strong> la compañia?
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrarModal">CANCELAR</button>

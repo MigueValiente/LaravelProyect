@@ -153,6 +153,6 @@ class JobsController extends Controller
         
         $job = Job::where('slug', $slug)->firstOrFail();
 
-        
+        return view('public.jobs.partials.showModal', ['job' => $job]);
     }
 }

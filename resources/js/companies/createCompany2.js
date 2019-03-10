@@ -32,8 +32,23 @@ function  asociarEventos(){
         event.preventDefault();
         validarFormulario(event.target);
         createCompanyAjax();
+        nuevoFormulario();
     });
 }
+
+function nuevoFormulario(){
+
+    axios.get("/companies/nuevoFormulario")
+      .then(function(response){
+        $("#createCompanyForm").html(response.data);
+        let botonEnviar = $("<button type='submit' class='btn btn-primary' name='saveCompanyButton' idea='saveCompanyButton'>Save Company</button>");
+        $("#createCompanyForm").append(botonEnviar);
+        // eventoTitulo();
+      }).catch(function(){
+        alert("Ha habido un ERROR con el nuevo formulario");
+      })
+}
+
 
 function validarCampo(input){
     let datosPost = {};
@@ -94,7 +109,8 @@ function validarFormulario(form){
         }
 
         if(formularioCorrecto){
-            form.submit();
+            // form.submit();
+
         }
     }).catch(function (error) {
         console.log(error);

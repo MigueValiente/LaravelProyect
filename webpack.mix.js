@@ -23,6 +23,7 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/companies/editCompany.js', 'public/js/companies/')
     .js('resources/js/jobs/paginacion.js', 'public/js/jobs/')
     .js('resources/js/jobs/search.js', 'public/js/jobs/')
+    .js('resources/js/jobs/showModalScript.js', 'public/js/jobs/')
 
 if (mix.inProduction()) {
    mix.version();

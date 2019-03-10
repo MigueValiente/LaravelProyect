@@ -11,7 +11,10 @@
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
               <p class="card-text">{{$job->payment}}€</p>
               @include("public.jobs.partials.buttons")
-              <a href="/jobs/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a>
+              {{-- <a href="/jobs/moreInfoAjax/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a> --}}
+              <button type="button" data-jobSlug="{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2 showButton" id="showButton">
+                  More Info
+              </button>
 
             </div>
         </div>
