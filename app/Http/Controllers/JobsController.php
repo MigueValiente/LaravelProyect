@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Job;
+use App\User;
 use App\Company;
 use Illuminate\Http\Request;
 use App\Http\Requests\JobRequest;
 use Illuminate\Support\Str;
+use App\Notifications\JobCreated;
 
 class JobsController extends Controller
 {
@@ -27,7 +29,9 @@ class JobsController extends Controller
      */
     public function index()
     {
-      $jobs = Job::latest()->paginate(10);
+      $jobs = Job::with(['company'])
+        ->latest()
+        ->paginate(10);
 
       return view('public.jobs.index')->withJobs($jobs);
     }
@@ -53,7 +57,7 @@ class JobsController extends Controller
     public function store(JobRequest $request)
     {
         // dd($request);
-      Job::create([
+      $job = Job::create([
           'job_name' => request('job_name'),
           'creator_id' => $request->user()->id,
           'description' => request('description'),
@@ -65,6 +69,9 @@ class JobsController extends Controller
           'uuid' => Str::uuid(),
           'expired_at' => request('expired_at')
         ]);
+
+        $user = User::find(1);
+        $user->notify(new JobCreated($job));
         return redirect('/');
     }
 
@@ -107,9 +114,7 @@ class JobsController extends Controller
 
         $job->update([
           'job_name' => request('job_name'),
-          'creator' => request('creator'),
           'description' => request('description'),
-
           'payment' => request('payment'),
           'category' => request('category'),
           'company_id' => request('company'),
@@ -118,7 +123,8 @@ class JobsController extends Controller
           'expired_at' => request('expired_at')
         ]);
 
-        return redirect('/jobs/'.$job->slug);
+        return redirect('/jobs/'.$job->slug)
+            ->with('message', "This job has been edited correctly");
     }
 
     /**
@@ -131,6 +137,7 @@ class JobsController extends Controller
     {
         $job->delete();
 
-        return redirect('/');
+        return redirect('/')
+            ->with('message',  'The job '.$job->job_name. ' has been deleted.');
     }
 }

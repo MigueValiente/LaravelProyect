@@ -22,6 +22,17 @@ class JobPolicy
         return $job->creator_id == $user->id || $user->role == "admin";
     }
 
+        /**
+     * Determine whether the user can update the job.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    // public function creator(User $user)
+    // {
+    //     return $user->role == "provider" || $user->role == "admin";
+    // }
+
     public function before($user, $ability)
     {
         if($user->role == "admin") 

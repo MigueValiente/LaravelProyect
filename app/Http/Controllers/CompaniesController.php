@@ -45,7 +45,13 @@ class CompaniesController extends Controller
      */
     public function store(CompanyRequest $request)
     {
+
         $logo = $request->file('logo');
+        $resultadoLogo = NULL;
+
+        if($logo != NULL){
+            $resultadoLogo = $logo->store('logos','public');
+        }
 
         Company::create([
             'name' => request('name'),
@@ -53,7 +59,7 @@ class CompaniesController extends Controller
             'web' => request('web'),
             'address' => request('address'),
             'email' => request('email'),
-            'logo' => $logo->store('logos','public'),
+            'logo' => $resultadoLogo,
         ]);
   
         return redirect('/');

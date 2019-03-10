@@ -9,6 +9,12 @@
         {{ $jobs->links() }}
     </div>
 
+    @if(session('message'))
+      <div class="alert alert-danger" role="alert">
+          {{session('message')}}
+      </div>
+    @endif
+
       @forelse($jobs as $job)
         <div class="card mb-2">
           <div class="card-header">
@@ -21,7 +27,7 @@
               <p class="card-text">{{str_limit($job->description, 50)}}</p>
               <p class="card-text">{{$job->payment}}€</p>
               @include("public.jobs.partials.buttons")
-              <a href="/jobs/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a>
+              <a href="/jobs/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">More Info</a>
 
             </div>
         </div>

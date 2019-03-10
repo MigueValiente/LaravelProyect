@@ -56,7 +56,6 @@ class JobRequest extends FormRequest
     {
         return [
             'job_name'      => 'nombre del trabajo',
-            'creator'       => 'nombre del creador',
             'description'   => 'descripcion del trabajo',
             'province'      => 'provincia',
             'payment'       => 'sueldo',

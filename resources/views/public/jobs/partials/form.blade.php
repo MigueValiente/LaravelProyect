@@ -8,15 +8,7 @@
   @endif
 </div>
 
-<div class="form-group">
-  <label for="creator">Creador</label>
-  <input type="text" id="creator" class="form-control {{$errors->has('creator')?"is-invalid":""}}" name="creator" placeholder="Introduzca su nombre" value="{{isset($job)?$job->creator->name:old('creator')}}" required>
-  @if ($errors->has('creator'))
-    <div class="invalid-feedback">
-        {{$errors->first('creator')}}
-    </div>
-  @endif
-</div>
+
 
 <div class="form-group">
   <div class="row d-flex align-items-end">
@@ -69,6 +61,7 @@
 <div class="form-group">
   <label for="province">Provincia</label>
   <select class="form-control  {{$errors->has('province')?"is-invalid":""}}" name="province" required>
+    <option value="">Seleccionar</option>
     <option value='alava'>Álava</option>
     <option value='albacete'>Albacete</option>
     <option value='alicante'>Alicante/Alacant</option>
