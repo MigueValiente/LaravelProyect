@@ -4,4 +4,5 @@
 
 @section('content')
   <h1>Aviso Legal</h1>
+  
 @endsection

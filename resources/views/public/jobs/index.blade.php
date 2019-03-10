@@ -3,13 +3,14 @@
 @section('title','Trabajos')
 
 @section('content')
-    <h1>Lista de Trabajos</h1>
-
-    <div id="buscador" class="buscador mb-2">
-      <form id="searchForm">
-          <input type="text" id="inputBuscador" name="inputBuscador" class="inputBuscador" placeholder="Escribe algo...">
-          <button id="botonBusqueda" class="botonBusqueda">BUSCAR</button>
-      </form>
+    <h1 class="text-center">Lista de Trabajos</h1>
+    <div class="container col-sm-3 col-md-6 col-lg-10 col-xl-12 pl-sm-1 pl-md-1 pl-lg-0 pl-xl-0">
+      <div id="buscador" class="buscador mb-sm-1 mb-md-1 mb-lg-2 mb-xl-2">
+        <form id="searchForm">
+            <input type="text" id="inputBuscador" name="inputBuscador" class="inputBuscador" placeholder="Escribe algo...">
+            <button id="botonBusqueda" class="botonBusqueda rounded">BUSCAR</button>
+        </form>
+      </div>
     </div>
 
     <div id="mostrarJobs">
