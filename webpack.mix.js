@@ -24,7 +24,8 @@ mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/jobs/paginacion.js', 'public/js/jobs/')
     .js('resources/js/jobs/search.js', 'public/js/jobs/')
     .js('resources/js/jobs/showModalScript.js', 'public/js/jobs/')
-
+    .js('resources/js/others/tooltip.js', 'public/js/others/')
+    .js('resources/js/others/popover.js', 'public/js/others/')
 if (mix.inProduction()) {
    mix.version();
 }

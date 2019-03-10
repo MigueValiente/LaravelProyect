@@ -13,8 +13,14 @@
     <div class="container col-sm-3 col-md-6 col-lg-10 col-xl-12 pl-sm-1 pl-md-1 pl-lg-0 pl-xl-0">
       <div id="buscador" class="buscador mb-sm-1 mb-md-1 mb-lg-2 mb-xl-2">
         <form id="searchForm">
-            <input type="text" id="inputBuscador" name="inputBuscador" class="inputBuscador" placeholder="Escribe algo...">
-            <button id="botonBusqueda" class="botonBusqueda rounded">BUSCAR</button>
+            <input type="text" id="inputBuscador" name="inputBuscador" class="inputBuscador col-4" placeholder="Escribe algo...">
+            <div class="list-group list-group-flush display-inline">
+              <button id="botonBusqueda" class="botonBusqueda btn btn-sm rounded list-group-item list-group-item-action col-4">BUSCAR</button>
+              <button type="button" class="btn btn-sm list-group-item list-group-item-action col-4" data-container="body" data-toggle="popover" data-placement="left" data-content="Con este input podras buscar trabajos más concretos.">
+                <i class="far fa-question-circle"></i>
+              </button>
+            </div>
+
         </form>
       </div>
     </div>
@@ -39,4 +45,6 @@
     <script src="{{ asset('js/jobs/paginacion.js') }}" defer></script>
     <script src="{{ asset('js/jobs/search.js') }}" defer></script>
     <script src="{{ asset('js/jobs/showModalScript.js') }}" defer></script>
+    <script src="{{ asset('js/others/tooltip.js') }}" defer></script>
+    <script src="{{ asset('js/others/popover.js') }}" defer></script>
 @endpush

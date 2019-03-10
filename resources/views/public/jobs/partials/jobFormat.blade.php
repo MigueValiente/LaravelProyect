@@ -12,7 +12,7 @@
               <p class="card-text">{{$job->payment}}€</p>
               <div class="btn-group float-right reverse" role="group">
                 {{-- <a href="/jobs/moreInfoAjax/{{$job->slug}}" class="btn btn-primary btn-sm float-right mr-2">Más Info</a> --}}
-                <button type="button" data-jobSlug="{{$job->slug}}" class="btn btn-primary float-right showButton" id="showButton">
+                <button type="button" data-jobSlug="{{$job->slug}}" class="btn btn-primary float-right showButton" id="showButton" data-toggle="tooltip" data-placement="top" title="More Info">
                     <i class="fas fa-info"></i>
                 </button>
                 @include("public.jobs.partials.buttons")

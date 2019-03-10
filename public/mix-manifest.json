@@ -11,5 +11,7 @@
     "/js/jobs/search.js": "/js/jobs/search.js",
     "/js/jobs/showModalScript.js": "/js/jobs/showModalScript.js",
     "/js/mapScript/map.js": "/js/mapScript/map.js",
+    "/js/others/popover.js": "/js/others/popover.js",
+    "/js/others/tooltip.js": "/js/others/tooltip.js",
     "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
 }
