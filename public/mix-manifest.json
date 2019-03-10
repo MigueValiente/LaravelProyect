@@ -8,6 +8,7 @@
     "/js/companies/deleteCompany.js": "/js/companies/deleteCompany.js",
     "/js/companies/editCompany.js": "/js/companies/editCompany.js",
     "/js/jobs/paginacion.js": "/js/jobs/paginacion.js",
+    "/js/jobs/search.js": "/js/jobs/search.js",
     "/js/mapScript/map.js": "/js/mapScript/map.js",
     "/js/validations/jobValidation.js": "/js/validations/jobValidation.js"
 }

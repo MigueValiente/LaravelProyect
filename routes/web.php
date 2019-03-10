@@ -22,6 +22,8 @@ Route::post('/companies/editCompanyAjax','CompaniesController@editCompanyAjax');
 Route::get('/companies/nuevoFormulario','CompaniesController@nuevoFormulario');
 Route::delete('/companies/borrarAjax/{idLibro}','CompaniesController@deleteAjax');
 Route::get('/jobs/paginar/{numeroElementos}', 'JobsController@paginar');
+Route::post('/jobs/searchJobsAjax','JobsController@buscar');
+Route::post('/jobs/moreInfoAjax/{slug}','JobsController@showAjax');
 
 
 Route::resource('/jobs', 'JobsController');

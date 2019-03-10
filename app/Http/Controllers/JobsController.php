@@ -143,4 +143,16 @@ class JobsController extends Controller
         }
         return $vista;
     }
+
+    public function buscar(){
+        $jobs = Job::where('job_name','like',"%".request('inputBuscador')."%")->get();
+        return view('public.jobs.partials.jobFormat', ['jobs' => $jobs]);
+    }
+
+    public function showAjax($slug){
+        
+        $job = Job::where('slug', $slug)->firstOrFail();
+
+        
+    }
 }
